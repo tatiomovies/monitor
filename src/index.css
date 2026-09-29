@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-neon-blue: #3b82f6;
+  --color-neon-green: #10b981;
+  --color-neon-red: #ef4444;
+  --color-neon-zinc: #27272a;
+  
+  --shadow-neon-blue: 0 0 15px rgba(59, 130, 246, 0.4);
+  --shadow-neon-green: 0 0 15px rgba(16, 185, 129, 0.4);
+  --shadow-neon-red: 0 0 20px rgba(239, 68, 68, 0.6);
+}
+
+@layer base {
+  body {
+    @apply bg-[#09090b] text-[#e4e4e7] antialiased selection:bg-blue-600 selection:text-white;
+  }
+}
+
+.glass {
+  @apply bg-[#18181b]/80 backdrop-blur-xl border border-white/10 rounded-xl;
+}
+
+.neon-blue { @apply border-blue-500/50 shadow-[var(--shadow-neon-blue)]; }
+.neon-green { @apply border-emerald-500/50 shadow-[var(--shadow-neon-green)]; }
+.neon-red { @apply border-red-500/80 shadow-[var(--shadow-neon-red)] animate-pulse; }
+.neon-gray { @apply border-zinc-700/50 bg-zinc-800/30; }
+.neon-purple { @apply border-purple-500/50 shadow-[0_0_15px_rgba(168,85,247,0.4)]; }
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.animate-pulse {
+  animation: pulse 1.5s infinite;
+}
+
+.glow-text-blue { @apply text-blue-400 drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]; }
+.glow-text-green { @apply text-emerald-400 drop-shadow-[0_0_8px_rgba(16,185,129,0.6)]; }
+.glow-text-red { @apply text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]; }
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

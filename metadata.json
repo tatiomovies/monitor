@@ -1,0 +1,6 @@
+{
+  "name": "BangBil Game Billing",
+  "description": "Professional gaming rental billing dashboard with real-time TV status tracking, countdowns, and data visualization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

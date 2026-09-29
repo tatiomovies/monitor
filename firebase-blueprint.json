@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "TV": {
+      "title": "TV Unit",
+      "description": "A TV unit in the rental shop",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "number": { "type": "number" },
+        "status": { "type": "string", "enum": ["OFF", "ACTIVE", "WARNING", "OPEN", "FINISHED"] },
+        "currentRentalId": { "type": ["string", "null"] }
+      },
+      "required": ["id", "number", "status"]
+    },
+    "Rental": {
+      "title": "Rental Session",
+      "description": "A rental session for a TV",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "tvId": { "type": "string" },
+        "tvNumber": { "type": "number" },
+        "psType": { "type": "string", "enum": ["PS3", "PS4", "PS5"] },
+        "startTime": { "type": "number" },
+        "endTime": { "type": ["number", "null"] },
+        "durationMinutes": { "type": "number" },
+        "isHourly": { "type": "boolean" },
+        "status": { "type": "string", "enum": ["ACTIVE", "WARNING", "OPEN", "FINISHED"] },
+        "pricePerHour": { "type": "number" },
+        "totalPrice": { "type": "number" },
+        "rounding": { "type": "number" }
+      },
+      "required": ["id", "tvId", "tvNumber", "psType", "startTime", "status"]
+    }
+  },
+  "firestore": {
+    "/tvs/{tvId}": {
+      "schema": "TV",
+      "description": "Collection of TV units"
+    },
+    "/rentals/{rentalId}": {
+      "schema": "Rental",
+      "description": "Collection of rental sessions"
+    }
+  }
+}
